@@ -1,5 +1,6 @@
 'use client';
-import { Image, ImageContainer } from '@/Components/Image';
+import Image from '@/components/Image/Image';
+import ImageContainer from '@/components/Image/ImageContainer';
 import { useState } from 'react';
 import bg from '/public/VeloceBG.jpg';
 import logo from '/public/logo.png';
