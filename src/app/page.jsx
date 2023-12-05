@@ -1,6 +1,7 @@
 'use client';
 import Image from '@/components/Image/Image';
 import ImageContainer from '@/components/Image/ImageContainer';
+import Link from 'next/link';
 import { useState } from 'react';
 import bg from '/public/VeloceBG.jpg';
 import logo from '/public/logo.png';
@@ -10,29 +11,13 @@ const Card = ({ title, price, src }) => {
   const formatNumber = (number) => { return number.toLocaleString('en-IN'); }
   const handleHover = () => { setHovered(!hovered); };
   return (
-    <div className='relative'>
-      <ImageContainer
-        className={`aspect-[4/5] bg-red-100 border-2 border-gray-500 rounded-lg relative group overflow-hidden`}
-        onMouseEnter={handleHover}
-        onMouseLeave={handleHover}
-      >
-        <Image
-          width="1200"
-          height="1200"
-          className={`w-full h-auto fill-none absolute transition-all duration-500 ${hovered ? 'scale-110 opacity-100' : 'opacity-0'}`}
-          alt="product 1"
-          src={src[1]}
-        />
-        <Image
-          width="1200"
-          height="1200"
-          className={`w-full h-auto fill-none absolute transition-all duration-500 ${hovered ? 'scale-110 opacity-0' : 'opacity-100'}`}
-          alt="product 1"
-          src={src[0]}
-        />
+    <div className='relative px-5'>
+      <ImageContainer className={`aspect-[4/5] bg-red-100 border-2 border-gray-500 rounded-lg relative group overflow-hidden`} onMouseEnter={handleHover} onMouseLeave={handleHover} >
+        <Image width="1200" height="1200" className={`w-full h-auto fill-none absolute transition-all duration-500 ${hovered ? 'scale-110 opacity-100' : 'opacity-0'}`} alt="product 1" src={src[1]} />
+        <Image width="1200" height="1200" className={`w-full h-auto fill-none absolute transition-all duration-500 ${hovered ? 'scale-110 opacity-0' : 'opacity-100'}`} alt="product 1" src={src[0]} />
       </ImageContainer>
       <div className="flex flex-col">
-        <div className="text-xl pt-6">{title}</div>
+        <Link href="/collection"><div className="text-xl pt-6">{title}</div></Link>
         <div className="text-lg pt-1">{formatNumber(price)}</div>
       </div>
     </div>

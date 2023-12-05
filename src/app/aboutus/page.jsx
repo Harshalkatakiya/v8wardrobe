@@ -35,7 +35,7 @@ const AboutUs = () => {
     };
     const submitForm = (e) => {
         e.preventDefault();
-        Toast("Your Response has been Submitted", "success")
+        Toast("Your Response has been Submitted", "success");
     }
     const socialIconSize = "27px";
     const sections = [
