@@ -32,6 +32,9 @@ const Cart = () => {
         const formatter = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", });
         return formatter.format(value);
     };
+    const checkOut = () => {
+        cartItems.length > 0 ? Toast("Thank You for Purchasing an Order", "success") : Toast("Please add at least one item to your cart", "warning");
+    }
     return (
         <>
             <div className="min-h-screen bg-gray-100 pt-8">
@@ -88,7 +91,7 @@ const Cart = () => {
                                     </div>
                                 </div>
                                 <button className="mt-4 w-full rounded-md bg-red-500 py-2 font-medium text-white hover:bg-red-600" onClick={clearCart}>Clear Cart</button>
-                                <button className="mt-4 w-full rounded-md bg-blue-500 py-2 font-medium text-blue-50 hover:bg-blue-600" onClick={() => Toast("Thank You for Purchasing an Order", "success")}>Check out</button>
+                                <button className="mt-4 w-full rounded-md bg-blue-500 py-2 font-medium text-blue-50 hover:bg-blue-600" onClick={checkOut}>Check out</button>
                             </div>
                         </div>
                     </div>
